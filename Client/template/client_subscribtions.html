@@ -1,0 +1,73 @@
+{% extends 'client_header.html' %} {% load static %} {% block content %}
+<div id="main-wrapper">
+			
+			<!-- ============================ Pricing Table ================================== -->
+			<section class="min">
+				<div class="container">
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-7 col-md-8">
+							<div class="sec-heading center">
+								<h2>Select Your <span class="theme-cl">Package</span></h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row align-items-center">
+						{% for s in sub %}
+						{% if s.s_id|divisibleby:2 == 0 %}
+						
+						<!-- Single Package -->
+						<div class="col-lg-4 col-md-4">
+							<div class="pricing_wrap">
+								<div class="prt_head">
+									<h4>{{s.s_name}}</h4>
+								</div>
+								<div class="prt_price">
+									<h2><span>Rs</span>{{s.price}}</h2>
+									<span></span>
+								</div>
+								<div class="prt_body">
+									<ul>
+										<li>Ask quetion : {{s.s_max_problem_solve_qty}}</li>
+									</ul>
+								</div>
+								<div class="prt_footer">
+									<a href="#" class="btn choose_package">{{s.s_name}}</a>
+								</div>
+							</div>
+						</div>
+						{% else %}
+						<!-- Single Package -->
+						<div class="col-lg-4 col-md-4">
+							<div class="pricing_wrap">
+								<div class="prt_head">
+									<div class="recommended">Best Value</div>
+									<h4>{{s.s_name}}</h4>
+								</div>
+								<div class="prt_price">
+									<h2><span>Rs</span>{{s.price}}</h2>
+									<span></span>
+								</div>
+								<div class="prt_body">
+									<ul>
+										<li>Ask questions : {{s.s_max_problem_solve_qty}}</li>
+									</ul>
+								</div>
+								<div class="prt_footer">
+									<a href="#" class="btn choose_package active">{{s.s_name}}</a>
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						{% endif %}
+						{% endfor %}
+					</div>
+					
+				</div>
+			</section>
+			<!-- ============================ Pricing Table End ================================== -->
+</div>
+			{% endblock %}			

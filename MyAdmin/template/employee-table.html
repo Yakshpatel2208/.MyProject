@@ -1,0 +1,56 @@
+﻿{% extends 'header.html' %} {% load static %} {% block content %}
+<div class="main_content" id="main-content">
+        <div class="page">
+            <div class="container-fluid">            
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Employee</strong> Details </h2>
+                            </div>
+                            <h1><strong><a href="/insert/">Insert</a></strong></h1>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                        <thead>
+                                            <tr>
+                                                <th>Employee Id </th>
+                                                <th>Name</th>
+                                                <th>Date of Birth</th>
+                                                <th>Salary</th>
+                                                <th>Daily hours of work</th>
+                                                <th>day of work in weekend</th>
+                                                <th>Contact</th>
+                                                <th>Email</th>
+                                                <th>Regine</th>
+                                                <th>Update</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for e in emp %}
+                                            <tr>
+                                                <td>{{e.e_id}}</td>
+                                                <td>{{e.e_name}}</td>
+                                                <td>{{e.e_dob}}</td>  
+                                                <td>{{e.e_salary}}</td>
+                                                <td>{{e.e_daily_work_hours}}</td>
+                                                <td>{{e.e_weekend_day}}</td>
+                                                <td>{{e.e_contact}}</td>
+                                                <td>{{e.e_email}}</td>
+                                                <td><a href="/delete/{{e.e_id}}">Delete</a></td>
+                                                <td><a href="/update/{{e.e_id}}">Update</a></td>
+                                            </tr>                                                
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+   
+    {% endblock %}

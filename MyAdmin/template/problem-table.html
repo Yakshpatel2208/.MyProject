@@ -1,0 +1,43 @@
+{% extends 'header.html' %} {% load static %} {% block content %}
+<div class="main_content" id="main-content">
+        <div class="page">
+            <div class="container-fluid">   
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Problem Details</h2>                            
+                            </div>
+                            <h1><strong><a href="/problem_insert/">Insert</a></strong></h1>
+                            <div class="body table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee Id</th>
+                                            <th>Problem Id </th>
+                                            <th>Problem description</th>
+                                            <th>Completed</th>
+                                            <th>Update</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for e in pro %}
+                                        <tr>
+                                            <td>{{e.e_id.e_id}}</td>
+                                            <td>{{e.p_id}}</td>
+                                            <td>{{e.p_description}}</td>
+                                            <td><a href="/delete_problem/{{e.p_id}}">Completed</a></td>
+                                            <td><a href="/update_problem/{{e.p_id}}">Update</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

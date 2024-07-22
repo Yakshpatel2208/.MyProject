@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from www.wrraptheme.com/templates/bigbucket/html/light/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jul 2024 04:35:50 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeMakker">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title>:: BigBucket :: Login</title>
+    <link rel="stylesheet" href="{% static 'assets/vendor/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" type="text/css">
+</head>
+
+<body class="theme-indigo">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="https://www.wrraptheme.com/templates/bigbucket/html/assets/images/brand/icon_black.svg" width="48" height="48" alt="ArrOw"></div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<div class="vertical-align-wrap">
+			<div class="vertical-align-middle auth-main">
+				<div class="auth-box">
+                    <div class="top">
+                        <img src="https://www.wrraptheme.com/templates/bigbucket/html/assets/images/brand/icon_black.svg" alt="Lucid">
+                        <strong>Big</strong> <span>Bucket</span>
+                    </div>
+					<div class="card">
+                        <div class="header">
+                            <p class="lead">Login to your account</p>
+                        </div>
+                        <div class="body">
+                            
+                            <form method = "post" action="/login/" class="needs-validation" novalidate="">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="signin-email" class="control-label sr-only">Email</label>
+                                    <input id="email" type="email" class="form-control" name="email" tabindex="1" value="{{cookie_email}}" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signin-password" class="control-label sr-only">Password</label>
+                                    <input id="password" type="password" class="form-control" name="password" tabindex="2" value="{{cookie_password}}" required>
+                                </div>
+                                <div class="form-group clearfix">
+                                    <label class="fancy-checkbox element-left">
+                                        <input type="checkbox" name = "remember" value = "remember">
+                                        <span>Remember me</span>
+                                    </label>								
+                                </div>
+                                {% for data in messages %}
+                                    <span style = "color: red"> {{data}} </span>
+                                {% endfor %}
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+                                <div class="bottom">
+                                    <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="/forgot/">Forgot password?</a></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- END WRAPPER -->
+    
+<!-- Core -->
+<script src="{% static 'assets/bundles/libscripts.bundle.js' %}"></script>
+<script src="{% static 'assets/bundles/vendorscripts.bundle.js' %}"></script>
+
+<script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+
+<!-- Mirrored from www.wrraptheme.com/templates/bigbucket/html/light/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jul 2024 04:35:50 GMT -->
+</html>

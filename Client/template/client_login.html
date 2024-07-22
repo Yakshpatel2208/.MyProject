@@ -1,0 +1,63 @@
+{% extends 'client_header.html' %} {% load static %} {% block content %}
+
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+           
+			
+			<!-- ============================ Signup Wrap ================================== -->
+			<section>
+				<div class="container">
+					<div class="row justify-content-center">
+					
+						<div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
+							
+								<div class="crs_log_wrap">
+									<div class="crs_log__thumb">
+										<img src="{% static 'assets/img/banner-2.jpg' %}" class="img-fluid" alt="" />
+									</div>
+									<div class="crs_log__caption">
+										<div class="rcs_log_123">
+											<div class="rcs_ico"><i class="fas fa-user"></i></div>
+										</div>
+										<div class="Lpo09"><h4>Login Your Account</h4></div>
+										<div class="rcs_log_124">	
+											<form method = "POST" action="/client/client_login/">
+											{% csrf_token %}
+											<div class="form-group">
+												<label>Email</label>
+												<input type="text" name="e_email" class="form-control" placeholder="Email" value="{{cookie_clientemail}}" />
+											</div>
+											<div class="form-group">
+												<label>Password</label>
+												<input type="password" name="e_password" class="form-control" placeholder="*" value="{{cookie_clientpassword}}"/>
+											</div>
+                                            <div class="form-group row">
+                                                <div class="col-xl-4 col-lg-4 col-4">
+                                                    <input type="checkbox" name = "remember" value = "remember">
+                                                    <span>Remember me</span>
+                                                </div>
+                                            </div>
+											<div class="form-group">
+												<button type="submit" class="btn full-width btn-md theme-bg text-white">Sign Up</button>
+											</div>
+											</form>
+										</div>
+										
+									</div>
+								</div>
+							
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- ============================ Signup Wrap ================================== -->
+			
+			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+			
+
+		</div>
+		{% endblock %}
